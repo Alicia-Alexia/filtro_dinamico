@@ -49,12 +49,14 @@ O projeto é estático e não requer instalação de dependências:
 - **Manipulação de Classes:** Adição e remoção dinâmica de classes Tailwind (`bg-indigo-600`, `text-white`, `hidden`) baseada na interação do usuário.
 
 ## 📂 Estrutura de Arquivos
-├── img/
-├── src/
-│   ├── script.js
-│   └── style.css
-├── index.html  
-└── README.md
+/
+
+    ├── img/
+    │   ├── image.png
+    ├── src/
+    │   ├── script.js
+    ├── index.html  
+    └── README.md
 
 ---
 
