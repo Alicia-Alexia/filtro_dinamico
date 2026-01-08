@@ -1,28 +1,79 @@
-<div class="filter-container">
-  <button class="filter-btn active" data-filter="all">Todos</button>
-  <button class="filter-btn" data-filter="web">Web</button>
-  <button class="filter-btn" data-filter="mobile">Mobile</button>
-  <button class="filter-btn" data-filter="design">Design</button>
-</div>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Filtro Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-10 font-sans">
 
-<div class="projects-grid">
-  <div class="project-card" data-category="web">
-    <h3>E-commerce React</h3>
-    <p>Categoria: Web</p>
-  </div>
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">Meus Projetos</h1>
 
-  <div class="project-card" data-category="mobile">
-    <h3>App Fitness</h3>
-    <p>Categoria: Mobile</p>
-  </div>
+        <div class="flex justify-center gap-4 mb-8" id="filter-container">
+            <button class="filter-btn px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition" data-filter="all">Todos</button>
+            <button class="filter-btn px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 transition" data-filter="web">Web</button>
+            <button class="filter-btn px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 transition" data-filter="mobile">Mobile</button>
+            <button class="filter-btn px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 transition" data-filter="design">Design</button>
+        </div>
 
-  <div class="project-card" data-category="design">
-    <h3>Redesign de Logo</h3>
-    <p>Categoria: Design</p>
-  </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+            
+            <div class="project-card bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition" data-category="web">
+                <div class="h-32 bg-blue-100 rounded mb-4 flex items-center justify-center text-blue-500 font-bold">IMG Web</div>
+                <h3 class="text-xl font-bold mb-2">E-commerce React</h3>
+                <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-blue-600 bg-blue-200 last:mr-0 mr-1">Web</span>
+            </div>
 
-  <div class="project-card" data-category="web">
-    <h3>Landing Page</h3>
-    <p>Categoria: Web</p>
-  </div>
-</div>
+            <div class="project-card bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition" data-category="mobile">
+                <div class="h-32 bg-green-100 rounded mb-4 flex items-center justify-center text-green-500 font-bold">IMG Mobile</div>
+                <h3 class="text-xl font-bold mb-2">App Fitness</h3>
+                <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-green-600 bg-green-200 last:mr-0 mr-1">Mobile</span>
+            </div>
+
+            <div class="project-card bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition" data-category="design">
+                <div class="h-32 bg-purple-100 rounded mb-4 flex items-center justify-center text-purple-500 font-bold">IMG Design</div>
+                <h3 class="text-xl font-bold mb-2">Redesign Logo</h3>
+                <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-purple-600 bg-purple-200 last:mr-0 mr-1">Design</span>
+            </div>
+
+             <div class="project-card bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition" data-category="web">
+                <div class="h-32 bg-blue-100 rounded mb-4 flex items-center justify-center text-blue-500 font-bold">IMG Web</div>
+                <h3 class="text-xl font-bold mb-2">Landing Page</h3>
+                <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded text-blue-600 bg-blue-200 last:mr-0 mr-1">Web</span>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.project-card');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => {
+                    b.classList.remove('bg-blue-600', 'text-white');
+                    b.classList.add('bg-gray-300', 'text-gray-700');
+                });
+
+                btn.classList.remove('bg-gray-300', 'text-gray-700');
+                btn.classList.add('bg-blue-600', 'text-white');
+
+                const filter = btn.getAttribute('data-filter');
+
+                cards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    
+                    if (filter === 'all' || filter === category) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
