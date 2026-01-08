@@ -1,4 +1,4 @@
-![Preview](img/image.png)
+<img src="img/image.png" alt="Imagem do Projeto" width="400">
 
 # 📂 Filtro Dinâmico de Portfólio - DOM & UI Challenge
 
