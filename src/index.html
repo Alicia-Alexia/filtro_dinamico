@@ -57,12 +57,12 @@
         buttons.forEach(btn => {
             btn.addEventListener('click', () => {
                 buttons.forEach(b => {
-                    b.classList.remove('bg-blue-600', 'text-white');
-                    b.classList.add('bg-gray-300', 'text-gray-700');
-                });
+                    b.classList.remove('bg-indigo-600', 'text-white', 'shadow-md'); 
+                    b.classList.add('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+    });
 
-                btn.classList.remove('bg-gray-300', 'text-gray-700');
-                btn.classList.add('bg-blue-600', 'text-white');
+                btn.classList.remove('bg-white', 'text-slate-600', 'border', 'border-slate-200');
+                btn.classList.add('bg-indigo-600', 'text-white', 'shadow-md');
 
                 const filter = btn.getAttribute('data-filter');
 
